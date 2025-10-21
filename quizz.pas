@@ -3,7 +3,8 @@ uses crt;
 
 var 
     hargaminyak, hargaberas, hargagula, hargakecap, hargatelur : integer;
-
+    jmlhminyak, jmlhberas, jmlhgula, jmlhkecap, jmlhtelur : integer;
+    totalminyak, totalberas, totalgula, totalkecap, totaltelur : real;
     totalbelanja, pajak, totalakhir : real;
     potongan, pottambahan : integer;
     member, metode : string;
@@ -25,10 +26,26 @@ clrscr;
     writeln ('4. Harga Kecap : Rp ',hargakecap);
     writeln ('5. Harga Telur : Rp ',hargatelur);
 
-    totalbelanja := hargaminyak + hargaberas + hargagula + hargakecap + hargatelur;
+    write ('Masukkan jumlah minyak yang dibeli: ');
+    readln (jmlhminyak);
+    write ('Masukkan jumlah beras yang dibeli: ');
+    readln (jmlhberas);
+    write ('Masukkan jumlah gula yang dibeli: ');
+    readln (jmlhgula);
+    write ('Masukkan jumlah kecap yang dibeli: ');
+    readln (jmlhkecap);
+    write ('Masukkan jumlah telur yang dibeli: ');
+    readln (jmlhtelur);
 
-    write ('Masukkan total belanja : Rp ');
-    readln (totalbelanja);
+    totalminyak := hargaminyak * jmlhminyak;
+    totalberas := hargaberas * jmlhberas;
+    totalgula := hargagula * jmlhgula;
+    totalkecap := hargakecap * jmlhkecap;
+    totaltelur := hargatelur * jmlhtelur;
+
+    totalbelanja := totalminyak + totalberas + totalgula + totalkecap + totaltelur;;
+
+    writeln ('Masukkan total belanja : Rp ',totalbelanja:0:0);
 
     write ('Apakah anda member? (ya/tidak) : ');
     readln (member);
@@ -62,7 +79,7 @@ clrscr;
 
     writeln;
     writeln ('Total sebelum potongan dan pajak : Rp ',totalbelanja:0:0);
-    writeln ('Pajak 10% jika non-member : ',pajak:0:0);
+    writeln ('Pajak 10% jika non-member : Rp ',pajak:0:0);
     writeln ('Potongan Belanja : Rp ',potongan);
     writeln ('Potongan Tambahan : Rp ',pottambahan);
     writeln ('Total akhir yang harus dibayar : Rp ',totalakhir:0:0);
